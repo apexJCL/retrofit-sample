@@ -2,6 +2,7 @@ package me.apexjcl.retrofitsample.api.interfaces;
 
 import java.util.ArrayList;
 
+import me.apexjcl.retrofitsample.models.Comment;
 import me.apexjcl.retrofitsample.models.Post;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -21,5 +22,8 @@ public interface PostsAPI {
 
     @GET("posts")
     Call<ArrayList<Post>> getPosts();
+
+    @GET("posts/{id}/comments")
+    Call<ArrayList<Comment>> getComments(@Path("id") int postId);
 
 }

@@ -1,7 +1,6 @@
 package me.apexjcl.retrofitsample.models;
 
 import io.realm.RealmObject;
-import io.realm.annotations.Index;
 
 /**
  * A model for post
@@ -11,28 +10,27 @@ import io.realm.annotations.Index;
 
 public class Post extends RealmObject {
 
-    @Index
-    private long id;
+    private int id;
 
-    private long userId;
+    private int userId;
 
     private String title;
 
     private String body;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public long getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

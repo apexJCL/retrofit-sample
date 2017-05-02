@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import me.apexjcl.retrofitsample.R;
+import me.apexjcl.retrofitsample.activities.MainActivity;
 import me.apexjcl.retrofitsample.models.Post;
 
 /**
@@ -21,7 +23,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostHolder> 
 
     @Override
     public PostHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new PostHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler, parent, false));
+        return new PostHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_post, parent, false));
     }
 
     @Override
@@ -38,20 +40,28 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostHolder> 
         this.posts = posts;
     }
 
-    public class PostHolder extends RecyclerView.ViewHolder {
+    public class PostHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        private int mPostId;
         private TextView mTitle;
         private TextView mBody;
 
         public PostHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             mTitle = (TextView) itemView.findViewById(R.id.title);
             mBody = (TextView) itemView.findViewById(R.id.body);
         }
 
         public void update(Post post) {
+            mPostId = post.getId();
             mTitle.setText(post.getTitle());
             mBody.setText(post.getBody());
+        }
+
+        @Override
+        public void onClick(View v) {
+            ((MainActivity)v.getContext()).loadCommentsFragment(mPostId);
         }
     }
 

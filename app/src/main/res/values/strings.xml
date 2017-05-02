@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Retrofit Sample</string>
+    <string name="lorem">officia veritatis tenetur vero qui itaque\\nsint non ratione\\nsed et ut asperiores iusto eos molestiae nostrum\\nveritatis quibusdam et nemo iusto saepe</string>
+    <string name="title_placeholder">repudiandae ea animi iusto</string>
+    <string name="post_fetch_error">There was an error fetching posts, try again later.</string>
 </resources>

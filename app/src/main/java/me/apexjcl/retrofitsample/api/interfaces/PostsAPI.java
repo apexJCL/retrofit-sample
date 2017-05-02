@@ -1,5 +1,7 @@
 package me.apexjcl.retrofitsample.api.interfaces;
 
+import java.util.ArrayList;
+
 import me.apexjcl.retrofitsample.models.Post;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -14,7 +16,10 @@ import retrofit2.http.Path;
 
 public interface PostsAPI {
 
-    @GET("post/{id}")
+    @GET("posts/{id}")
     Call<Post> getPost(@Path("id") int id);
+
+    @GET("posts")
+    Call<ArrayList<Post>> getPosts();
 
 }
